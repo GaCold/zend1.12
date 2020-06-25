@@ -1,0 +1,36 @@
+<form class="form-horizontal" enctype="multipart/form-data" role="form" method="post" action="/admin/account/create">
+    <div class="col-md-12">
+        <div class="col-md-3">
+            <label class="control-label">Username<span
+                    style="color: #ff0000"> *</span></label>
+            <input type="text" size="40"
+                   class="form-control"
+                   name="username"
+                   id="FoodForm_food_name" maxlength="200"
+                   value="<?=$this->account_detail['username']?>" required>
+        </div>
+        <input type="hidden" name="id" value="<?=$this->account_detail['id']?>">
+        <div class="col-md-3">
+            <label class="control-label">Password</label>
+            <input class="form-control" name="password" type="password" value="" placeholder="***">
+        </div>
+        <div class="col-md-3">
+            <label class="control-label">Email<span style="color: #ff0000"> *</span></label>
+            <input class="form-control" name="email" required type="text" value="<?=$this->account_detail['email']?>">
+        </div>
+        <div class="col-md-3">
+            <label class="control-label">Address</label>
+            <input class="form-control" required name="address" type="text" value="<?=$this->account_detail['address']?>">
+        </div>
+
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-3">
+            <label class="control-label">Phone</label>
+            <input class="form-control" required name="phone" type="text" value="<?=$this->account_detail['phone']?>">
+        </div>
+        <div class="col-md-3">
+            <button type="submit" class="btn green" style="margin-top:30px">Submit</button>
+        </div>
+    </div>
+</form>

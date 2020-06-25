@@ -1,0 +1,125 @@
+<div class="col-md-12">
+    <div class="portlet box purple ">
+        <div class="portlet-body form">
+            <form class="form-horizontal" enctype="multipart/form-data" role="form" method="post" action="/admin/product/create">
+                <div class="col-md-12">
+                    <div class="col-md-3">
+                        <label class="control-label">Product name<span
+                                style="color: #ff0000"> *</span></label>
+                        <input type="text" size="40"
+                               class="form-control"
+                               name="product_name"
+                               id="FoodForm_food_name" maxlength="200"
+                               value="" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label">
+                            Category<span style="color: #ff0000"> *</span>
+                        </label>
+                        <select class="form-control" name="cate_id" id="FoodForm_food_menu" required>
+                            <?php foreach($this->categories as $cate):?>
+                            <option value="<?=$cate['id']?>"><?=$cate['category_name']?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label">Unit<span style="color: #ff0000"> *</span></label>
+                        <input class="form-control" name="product_unit" required type="text" value="">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label">Product Code</label>
+                        <input class="form-control" required name="product_code" type="text" value="">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <label class="control-label">Title <span style="color: #ff0000"> *</span></label>
+                        <textarea type="text" size="40" required class="form-control" rows="2" name="title"></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="control-label">Description <span style="color: #ff0000"> *</span></label>
+                        <textarea type="text" size="40" required class="form-control" rows="4" name="description"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-12 margin-top-20">
+                    <div class="col-md-12">
+                        <a href="javascript:void(0)" id="add-item-inventory" class="btn btn-sm green margin-bottom-5">
+                            Add <i class="fa fa-plus"></i>
+                        </a>
+                        <table class="col-md-12 table table-bordered table-hover data-table">
+                            <thead>
+                            <tr>
+                                <th width="20%">Size</th>
+                                <th width="20%">Color</th>
+                                <th width="10%">Price</th>
+                                <th width="13%">Total balance</th>
+                                <th width="7%" class="text-center">Xóa</th>
+                            </tr>
+                            </thead>
+                            <tbody id="add-inventory-item">
+                            <tr>
+                                <td>
+                                    <select class="form-control" name="size[]" required>
+                                        <?php foreach($this->product_extends as $extend):?>
+                                        <option value="<?=$extend['size']?>"><?=$extend['size']?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </td>
+                                <td class="center">
+                                    <select class="form-control" name="color[]" required>
+                                        <?php foreach($this->product_colors as $color):?>
+                                        <option value="<?=$color['id']?>"><?=$color['color_name']?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </td>
+                                <td class="center lheight-text" style="line-height: 30px;" >
+                                    <input class="form-control" name="price[]" required/>
+                                </td>
+                                <td class="center">
+                                    <input class="form-control" required type="text" name="total_balance[]" value="10">
+                                </td>
+                                <td class="delete-item-inventory">
+                                    <a href="javascript:void(0);" onclick="deleteItem($(this))" class="btn default btn-xs red radius"
+                                       style="margin: 0">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <span class="btn green fileinput-button" style="position:relative;">
+                            <i class="fa fa-plus"></i>
+                            <span> Image 1 </span>
+                            <input type="file" name="image[]" multiple="" required>
+                        </span>
+                    </div>
+
+                    <div class="col-md-2">
+                        <span class="btn green fileinput-button" style="position:relative;">
+                            <i class="fa fa-plus"></i>
+                            <span> Image 2 </span>
+                            <input type="file" name="image[]" multiple="" required>
+                        </span>
+                    </div>
+
+                    <div class="col-md-2">
+                        <span class="btn green fileinput-button" style="position:relative;">
+                            <i class="fa fa-plus"></i>
+                            <span> Image 3 </span>
+                            <input type="file" name="image[]" multiple="" required>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="form-actions right">
+                    <a href="/admin/product" class="btn default">Cancel</a>
+                    <button type="submit" class="btn green">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

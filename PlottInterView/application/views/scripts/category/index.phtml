@@ -1,0 +1,25 @@
+<div class="col-md-9 col-sm-7">
+    <!-- BEGIN PRODUCT LIST -->
+    <div class="row product-list">
+        <?php foreach ($this->list_product as $product): ?>
+            <!-- PRODUCT ITEM START -->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="product-item">
+                    <div class="pi-img-wrapper">
+                        <img src="<?php echo $this->baseUrl() .  '/upload/' . $product['img1'] ?>" class="img-responsive" alt="Berry Lace Dress" style="max-height: 150px">
+                        <div>
+                            <a href="<?php echo $this->baseUrl() .  '/upload/' . $product['img1'] ?>" class="btn btn-default fancybox-button">Zoom</a>
+                            <a href="/product/detail?id=<?=$product['id']?>" class="btn btn-default fancybox-fast-view">View</a>
+                        </div>
+                    </div>
+                    <h3><a href="shop-item.html"><?=$product['product_name']?></a></h3>
+                    <div class="pi-price">$<?=number_format($product['price'])?></div>
+                    <a href="/product/detail?id=<?=$product['id']?>" class="btn btn-default add2cart">Add to cart</a>
+                    <div class="sticker sticker-sale"></div>
+                </div>
+            </div>
+            <!-- PRODUCT ITEM END -->
+        <?php endforeach; ?>
+    </div>
+    <!-- END PRODUCT LIST -->
+</div>

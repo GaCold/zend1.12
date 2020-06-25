@@ -1,0 +1,86 @@
+<div class="col-md-12">
+	<!-- BEGIN SAMPLE TABLE PORTLET-->
+	<div class="col-md-12">
+		<form class="form-horizontal" role="form" method="post" action="/admin/product-color/create">
+			<div class="col-md-4">
+				<label class="control-label">Color</label>
+				<input class="form-control" required name="color" type="text" value="" placeholder="Gray">
+			</div>
+			<div class="col-md-4">
+				<label class="control-label">Color Code</label>
+				<input class="form-control" required name="rgb" type="text" value="" placeholder="#dddddd">
+			</div>
+			<div class="col-md-4 text-right" style="margin-top:30px;">
+				<button type="submit" class="btn green">Save</button>
+			</div>
+		</form>
+	</div>
+
+	<div class="portlet box red">
+		<div class="portlet-body">
+			<div class="table-scrollable">
+				<table class="table table-hover">
+					<thead>
+					<tr>
+						<th>
+							#
+						</th>
+						<th>
+							Color
+						</th>
+						<th>
+							Color code
+						</th>
+						<th>
+							Created
+						</th>
+						<th>
+							Modified
+						</th>
+						<th>
+							Action
+						</th>
+					</tr>
+					</thead>
+					<tbody>
+					<?php foreach ($this->product_colors as $product): ?>
+					<tr>
+						<form action="/admin/product-color/update" method="post">
+						<td>
+							<?= $product['id'] ?>
+							<input type="hidden" name="id" value="<?=$product['id']?>">
+						</td>
+						<td>
+							<input type="text" name="color" class="form-control"  value="<?=$product['color_name']?>">
+						</td>
+						<td>
+							<input type="text" name="rgb" class="form-control" value="<?=$product['rgb']?>" style="color:<?=$product['rgb']?>">
+						</td>
+						<td>
+							<?= $product['created_at'] ?>
+						</td>
+						<td>
+							<?= $product['updated_at'] ?>
+						</td>
+						<td>
+							<a href="/admin/product-color/delete?id=<?=$product['id']?>"
+							   class="btn btn-sm red filter-cancel" onclick="return confirm('Are you sure?')">
+								<i class="fa fa-times"></i>
+								Delete
+							</a>
+							<button type="submit"
+							   class="btn btn-sm green filter-cancel">
+								<i class="fa fa-check-circle"></i>
+								Update
+							</button>
+						</td>
+						</form>
+					</tr>
+					<?php endforeach; ?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- END SAMPLE TABLE PORTLET-->
+</div>

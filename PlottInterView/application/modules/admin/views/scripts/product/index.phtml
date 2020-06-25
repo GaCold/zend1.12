@@ -1,0 +1,106 @@
+<div class="col-md-12">
+    <!-- BEGIN SAMPLE TABLE PORTLET-->
+    <div class="row">
+        <form action="/admin/product" method="get">
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <input type="text" size="40" class="form-control radius"
+                           placeholder="Product or category name" name="key_search"
+                           value="<?= $this->key_search ?>"
+                    >
+                </div>
+                <div class="col-md-3">
+                    <select name="cate_id" class="form-control">
+                        <?php foreach ($this->list_cate as $cate): ?>
+                            <option <?=$this->cate_id == $cate['id'] ? 'selected' : '' ?> value="<?=$cate['id']?>">
+                                <?=$cate['category_name']?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="col-md-3 text-right">
+                    <input type="submit" class="btn green-meadow radius" value="search  ">
+                    <a href="/admin/product/create" class="btn green-meadow radius">create</a>
+                </div>
+        </form>
+    </div>
+
+    <div class="portlet box red">
+        <div class="portlet-body">
+            <div class="table-scrollable">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Image
+                        </th>
+                        <th>
+                            Product Name
+                        </th>
+                        <th>
+                            Category Name
+                        </th>
+                        <th>
+                            Title
+                        </th>
+                        <th>
+                            Create
+                        </th>
+                        <th>
+                            Modified
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($this->list_product as $product): ?>
+                        <tr>
+                            <td>
+                                <?= $product['id'] ?>
+                            </td>
+                            <td>
+                                <img style="width: 45px" src="<?=$this->baseUrl() . '/upload/' . $product['img1']?>" alt="avatar">
+                            </td>
+                            <td>
+                                <?= $product['product_name'] ?>
+                            </td>
+                            <td>
+                                <?= $product['category_name'] ?>
+                            </td>
+                            <td>
+                                <?= $product['title'] ?>
+                            </td>
+                            <td>
+                                <?= $product['created_at'] ?>
+                            </td>
+                            <td>
+                                <?= $product['updated_at'] ?>
+                            </td>
+                            <td>
+                                <a href="/admin/product/delete?id=<?=$product['id']?>"
+                                   class="btn btn-sm red filter-cancel" onclick="return confirm('Are you sure?')">
+                                    <i class="fa fa-times"></i>
+                                    Delete
+                                </a>
+                                <a href="/admin/product/update?id=<?= $product['id'] ?>"
+                                   class="btn btn-sm green filter-cancel">
+                                    <i class="fa fa-check-circle"></i>
+                                    Update
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <?php echo $this->paginationControl($this->list_product, 'Sliding', '/pagination_controls/pagination.phtml'); ?>
+
+    <!-- END SAMPLE TABLE PORTLET-->
+</div>

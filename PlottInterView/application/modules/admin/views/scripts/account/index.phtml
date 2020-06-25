@@ -1,0 +1,83 @@
+<div class="col-md-12">
+    <!-- BEGIN SAMPLE TABLE PORTLET-->
+    <div class="col-md-12 text-right">
+        <a href="/admin/account/create" class="btn green-meadow radius">create</a>
+    </div>
+    <div class="portlet box red">
+        <div class="portlet-body">
+            <div class="table-scrollable">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Username
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Phone
+                        </th>
+                        <th>
+                            Address
+                        </th>
+                        <th>
+                            Create
+                        </th>
+                        <th>
+                            Modified
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($this->list_account as $cate): ?>
+                        <tr>
+                            <td>
+                                <?= $cate['id'] ?>
+                            </td>
+                            <td>
+                                <?= $cate['username'] ?>
+                            </td>
+                            <td>
+                                <?= $cate['email'] ?>
+                            </td>
+                            <td>
+                                <?= $cate['phone'] ?>
+                            </td>
+                            <td>
+                                <?= $cate['address'] ?>
+                            </td>
+                            <td>
+                                <?= $cate['created_at'] ?>
+                            </td>
+                            <td>
+                                <?= $cate['updated_at'] ?>
+                            </td>
+                            <td>
+                                <a href="/admin/account/delete?id=<?=$cate['id']?>" class="btn btn-sm red filter-cancel" onclick="return confirm('Are you sure?')">
+                                    <i class="fa fa-times"></i>
+                                    Delete
+                                </a>
+                                <a href="/admin/account/update?id=<?= $cate['id'] ?>"
+                                   class="btn btn-sm green filter-cancel">
+                                    <i class="fa fa-check-circle"></i>
+                                    Update
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <?php echo $this->paginationControl($this->list_account, 'Sliding', '/pagination_controls/pagination.phtml'); ?>
+
+    <!-- END SAMPLE TABLE PORTLET-->
+</div>

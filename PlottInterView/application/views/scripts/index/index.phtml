@@ -1,0 +1,96 @@
+<div class="col-md-9 col-sm-7">
+    <!-- BEGIN PRODUCT LIST -->
+    <div class="row product-list">
+        <div class="col-md-12">
+            <h4>List product new</h4>
+        </div>
+        <!-- PRODUCT ITEM START -->
+        <?php foreach ($this->list_product_new as $product):?>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="product-item">
+                <div class="pi-img-wrapper">
+                    <img src="<?php echo $this->baseUrl() .  '/upload/' . $product['img1'] ?>" class="img-responsive" alt="Berry Lace Dress" style="max-height: 150px">
+                    <div>
+                        <a href="<?php echo $this->baseUrl() .  '/upload/' . $product['img1'] ?>" class="btn btn-default fancybox-button">Zoom</a>
+                        <a href="/product/detail?id=<?=$product['id']?>" class="btn btn-default fancybox-fast-view">View</a>
+                    </div>
+                </div>
+                <h3><a href="/product/detail?id=<?=$product['id']?>"><?=$product['product_name']?></a></h3>
+                <div class="pi-price">$<?=number_format($product['price'])?></div>
+                <a href="#" class="btn btn-default add2cart">Add to cart</a>
+                <div class="sticker sticker-sale"></div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+            <!-- PRODUCT ITEM END -->
+        <div class="row text-center">
+            <a href="/product?type=1" class="btn btn-primary">Load more</a>
+        </div>
+    </div>
+    <!-- END PRODUCT LIST -->
+
+    <!-- BEGIN PRODUCT LIST -->
+    <div class="row product-list">
+        <div class="col-md-12">
+            <h4>List most viewed products</h4>
+        </div>
+        <!-- PRODUCT ITEM START -->
+        <?php foreach ($this->list_product_view as $product):?>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="product-item">
+                <div class="pi-img-wrapper">
+                    <img src="<?php echo $this->baseUrl() .  '/upload/' . $product['img1'] ?>" class="img-responsive" alt="Berry Lace Dress" style="max-height: 150px">
+                    <div>
+                        <a href="<?php echo $this->baseUrl() .  '/upload/' . $product['img1'] ?>" class="btn btn-default fancybox-button">Zoom</a>
+                        <a href="/product/detail?id=<?=$product['id']?>" class="btn btn-default fancybox-fast-view">View</a>
+                    </div>
+                </div>
+                <h3><a href="/product/detail?id=<?=$product['id']?>"><?=$product['product_name']?></a></h3>
+                <div class="pi-price">$<?=number_format($product['price'])?></div>
+                <a href="#" class="btn btn-default add2cart">Add to cart</a>
+                <div class="sticker sticker-sale"></div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+            <!-- PRODUCT ITEM END -->
+        <div class="row text-center">
+            <a href="/product?type=2" class="btn btn-primary">Load more</a>
+        </div>
+    </div>
+    <!-- END PRODUCT LIST -->
+
+    <!-- BEGIN PRODUCT LIST -->
+    <?php foreach ($this->list_product_by_cate as $key => $product_cate): ?>
+    <div class="row product-list">
+        <div class="col-md-12">
+            <h4>List product for <?=$key?></h4>
+        </div>
+        <?php $cate_id = 0; ?>
+        <!-- PRODUCT ITEM START -->
+        <?php foreach ($product_cate as $product):?>
+            <?php $cate_id = $product['product_category_id']; ?>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="product-item">
+                <div class="pi-img-wrapper">
+                    <img src="<?php echo $this->baseUrl() .  '/upload/' . $product['img1'] ?>" class="img-responsive" alt="Berry Lace Dress" style="max-height: 150px">
+                    <div>
+                        <a href="<?php echo $this->baseUrl() .  '/upload/' . $product['img1'] ?>" class="btn btn-default fancybox-button">Zoom</a>
+                        <a href="/product/detail?id=<?=$product['id']?>" class="btn btn-default fancybox-fast-view">View</a>
+                    </div>
+                </div>
+                <h3><a href="/product/detail?id=<?=$product['id']?>"><?=$product['product_name']?></a></h3>
+                <div class="pi-price">$<?=number_format($product['price'])?></div>
+                <a href="#" class="btn btn-default add2cart">Add to cart</a>
+                <div class="sticker sticker-sale"></div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+            <!-- PRODUCT ITEM END -->
+        <div class="col-md-12 row text-center">
+            <a href="/category?id=<?=$product['product_category_id']?>" class="btn btn-primary">Load more</a>
+        </div>
+    </div>
+    <?php endforeach; ?>
+    <!-- END PRODUCT LIST -->
+
+</div>

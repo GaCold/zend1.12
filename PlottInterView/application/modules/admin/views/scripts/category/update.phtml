@@ -1,0 +1,21 @@
+<div class="col-md-12">
+    <div class="portlet box purple ">
+        <div class="portlet-body form">
+            <form class="form-horizontal" role="form" method="post" action="/admin/category/update">
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Category Name</label>
+                        <div class="col-md-9">
+                            <input type="hidden" name="id" value="<?=$this->cate_detail['id']?>">
+                            <input type="text" name="cate_name" value="<?=$this->cate_detail['category_name']?>" required class="form-control input-lg" placeholder="Category Name">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions right">
+                    <a href="/admin/category" class="btn default">Cancel</a>
+                    <button type="submit" class="btn green">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

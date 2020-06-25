@@ -1,0 +1,78 @@
+<div class="col-md-12">
+    <!-- BEGIN SAMPLE TABLE PORTLET-->
+    <div class="row">
+        <form action="/admin/category" method="get">
+            <div class="col-md-12">
+                <div class="col-md-7">
+                    <input type="text" size="40" class="form-control radius"
+                           placeholder="Category name" name="key_search"
+                           value="<?= $this->key_search ?>"
+                    >
+                </div>
+                <div class="col-md-3 text-right">
+                    <input type="submit" class="btn green-meadow radius" value="search  ">
+                    <a href="/admin/category/create" class="btn green-meadow radius">create</a>
+                </div>
+        </form>
+    </div>
+
+    <div class="portlet box red">
+        <div class="portlet-body">
+            <div class="table-scrollable">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Category Name
+                        </th>
+                        <th>
+                            Create
+                        </th>
+                        <th>
+                            Modified
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($this->list_cate as $cate): ?>
+                        <tr>
+                            <td>
+                                <?= $cate['id'] ?>
+                            </td>
+                            <td>
+                                <?= $cate['category_name'] ?>
+                            </td>
+                            <td>
+                                <?= $cate['created_at'] ?>
+                            </td>
+                            <td>
+                                <?= $cate['updated_at'] ?>
+                            </td>
+                            <td>
+                                <a href="/admin/category/delete?id=<?=$cate['id']?>" class="btn btn-sm red filter-cancel" onclick="return confirm('Are you sure?')">
+                                    <i class="fa fa-times"></i>
+                                    Delete
+                                </a>
+                                <a href="/admin/category/update?id=<?= $cate['id'] ?>"
+                                   class="btn btn-sm green filter-cancel">
+                                    <i class="fa fa-check-circle"></i>
+                                    Update
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <?php echo $this->paginationControl($this->list_cate, 'Sliding', '/pagination_controls/pagination.phtml'); ?>
+
+    <!-- END SAMPLE TABLE PORTLET-->
+</div>

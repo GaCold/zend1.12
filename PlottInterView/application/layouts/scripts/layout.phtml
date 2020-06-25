@@ -1,0 +1,355 @@
+<?php echo $this->doctype() ?>
+<!DOCTYPE html>
+<!--
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.2.0
+Version: 3.1.2
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest (the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<!-- Head BEGIN -->
+<head>
+    <meta charset="utf-8">
+    <title>Men category | Metronic Shop UI</title>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta content="Metronic Shop UI description" name="description">
+    <meta content="Metronic Shop UI keywords" name="keywords">
+    <meta content="keenthemes" name="author">
+
+    <meta property="og:site_name" content="-CUSTOMER VALUE-">
+    <meta property="og:title" content="-CUSTOMER VALUE-">
+    <meta property="og:description" content="-CUSTOMER VALUE-">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="-CUSTOMER VALUE-"><!-- link to image for socio -->
+    <meta property="og:url" content="-CUSTOMER VALUE-">
+
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Fonts START -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+    <!-- Fonts END -->
+
+    <!-- Global styles START -->
+    <?php echo $this->headLink()->appendStylesheet('/frontend/css/plugins/font-awesome/css/font-awesome.min.css') ?>
+    <?php echo $this->headLink()->appendStylesheet('/frontend/css/plugins/bootstrap/css/bootstrap.min.css') ?>
+    <!-- Global styles END -->
+
+    <!-- Page level plugin styles START -->
+    <?php echo $this->headLink()->appendStylesheet('/frontend/css/plugins/fancybox/source/jquery.fancybox.css') ?>
+    <?php echo $this->headLink()->appendStylesheet('/frontend/css/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css') ?>
+    <?php echo $this->headLink()->appendStylesheet('/frontend/css/plugins/uniform/css/uniform.default.css') ?>
+    <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"><!-- for slider-range -->
+    <?php echo $this->headLink()->appendStylesheet('/frontend/css/plugins/rateit/src/rateit.css') ?>
+    <!-- Page level plugin styles END -->
+
+    <!-- Theme styles START -->
+    <?php echo $this->headLink()->appendStylesheet('/frontend/css/global/components.css') ?>
+    <?php echo $this->headLink()->appendStylesheet('/frontend/css/layout/style.css') ?>
+    <?php echo $this->headLink()->appendStylesheet('/frontend/css/page/style-shop.css') ?>
+    <?php echo $this->headLink()->appendStylesheet('/frontend/css/layout/style-responsive.css') ?>
+    <?php echo $this->headLink()->appendStylesheet('/frontend/css/layout/themes/red.css') ?>
+    <?php echo $this->headLink()->appendStylesheet('/frontend/css/layout/custom.css') ?>
+    <!-- Theme styles END -->
+</head>
+<!-- Head END -->
+
+<!-- Body BEGIN -->
+<body class="ecommerce">
+
+
+<!-- BEGIN HEADER -->
+<div class="header">
+    <div class="container">
+        <a class="site-logo" href="/"><img src="<?php echo $this->baseUrl() . '/frontend/img/layout/logos/logo-shop-red.png' ?>" alt="Metronic Shop UI"></a>
+
+        <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+        <!-- BEGIN NAVIGATION -->
+        <div class="header-navigation">
+            <ul>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
+                        Woman
+                    </a>
+                </li>
+                <li class="dropdown dropdown-megamenu">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
+                        Man
+
+                    </a>
+                </li>
+                <li><a href="shop-item.html">Kids</a></li>
+                <!-- BEGIN TOP SEARCH -->
+                <li class="menu-search">
+                    <span class="sep"></span>
+                    <i class="fa fa-search search-btn"></i>
+                    <div class="search-box">
+                        <form action="#">
+                            <div class="input-group">
+                                <input type="text" placeholder="Search" class="form-control">
+                                <span class="input-group-btn">
+                      <button class="btn btn-primary" type="submit">Search</button>
+                    </span>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <!-- END TOP SEARCH -->
+            </ul>
+        </div>
+        <!-- END NAVIGATION -->
+    </div>
+</div>
+<!-- Header END -->
+
+<div class="title-wrapper">
+    <div class="container"><div class="container-inner">
+            <h1><span>MEN</span> CATEGORY</h1>
+            <em>Over 4000 Items are available here</em>
+        </div></div>
+</div>
+<div class="main">
+    <div class="container">
+        <?php if ($this->breadcrumb): ?>
+        <ul class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li><a href="">Store</a></li>
+            <li class="active">Men category</li>
+        </ul>
+        <?php endif; ?>
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+            <!-- BEGIN SIDEBAR -->
+            <div class="sidebar col-md-3 col-sm-5">
+                <?php if ($this->list_cate): ?>
+                    <ul class="list-group margin-bottom-25 sidebar-menu">
+                    <?php foreach ($this->list_cate as $item): ?>
+                        <li class="list-group-item clearfix <?= isset($_GET['id']) && $_GET['id'] == $item['id'] ? 'active' : ''?>">
+                            <a href="/category?id=<?=$item['id']?>">
+                                <i class="fa fa-angle-right"></i>
+                                <?= $item['category_name'] ?>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
+
+                <?php if ($this->best_seller): ?>
+                    <div class="sidebar-products clearfix">
+                        <h2>Bestsellers</h2>
+                        <?php foreach ($this->best_seller as $sell): ?>
+                            <div class="item">
+                                <a href="/product/detail?id=<?=$sell['id']?>">
+                                    <img src="<?= $this->baseUrl()?>/upload/<?=$sell['img1']?>" alt="Some Shoes in Animal with Cut Out"></a>
+                                <h3>
+                                    <a href="/product/detail?id=<?=$sell['id']?>">
+
+                                    </a>
+                                </h3>
+                                <div class="price"><?=$sell['product_name']?></div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <?php echo $this->layout()->content ?>
+            <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+    </div>
+</div>
+
+
+<!-- BEGIN STEPS -->
+<div class="steps-block steps-block-red">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 steps-block-col">
+                <i class="fa fa-truck"></i>
+                <div>
+                    <h2>Free shipping</h2>
+                    <em>Express delivery withing 3 days</em>
+                </div>
+                <span>&nbsp;</span>
+            </div>
+            <div class="col-md-4 steps-block-col">
+                <i class="fa fa-gift"></i>
+                <div>
+                    <h2>Daily Gifts</h2>
+                    <em>3 Gifts daily for lucky customers</em>
+                </div>
+                <span>&nbsp;</span>
+            </div>
+            <div class="col-md-4 steps-block-col">
+                <i class="fa fa-phone"></i>
+                <div>
+                    <h2>477 505 8877</h2>
+                    <em>24/7 customer care available</em>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END STEPS -->
+
+<!-- BEGIN PRE-FOOTER -->
+<div class="pre-footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN BOTTOM ABOUT BLOCK -->
+            <div class="col-md-3 col-sm-6 pre-footer-col">
+                <h2>About us</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam sit nonummy nibh euismod tincidunt ut laoreet dolore magna aliquarm erat sit volutpat. Nostrud exerci tation ullamcorper suscipit lobortis nisl aliquip  commodo consequat. </p>
+                <p>Duis autem vel eum iriure dolor vulputate velit esse molestie at dolore.</p>
+            </div>
+            <!-- END BOTTOM ABOUT BLOCK -->
+            <!-- BEGIN BOTTOM INFO BLOCK -->
+            <div class="col-md-3 col-sm-6 pre-footer-col">
+                <h2>Information</h2>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-angle-right"></i> <a href="#">Delivery Information</a></li>
+                    <li><i class="fa fa-angle-right"></i> <a href="#">Customer Service</a></li>
+                    <li><i class="fa fa-angle-right"></i> <a href="#">Order Tracking</a></li>
+                    <li><i class="fa fa-angle-right"></i> <a href="#">Shipping & Returns</a></li>
+                    <li><i class="fa fa-angle-right"></i> <a href="contacts.html">Contact Us</a></li>
+                    <li><i class="fa fa-angle-right"></i> <a href="#">Careers</a></li>
+                    <li><i class="fa fa-angle-right"></i> <a href="#">Payment Methods</a></li>
+                </ul>
+            </div>
+            <!-- END INFO BLOCK -->
+
+            <!-- BEGIN TWITTER BLOCK -->
+            <div class="col-md-3 col-sm-6 pre-footer-col">
+                <h2 class="margin-bottom-0">Latest Tweets</h2>
+                <a class="twitter-timeline" href="https://twitter.com/twitterapi" data-tweet-limit="2" data-theme="dark" data-link-color="#57C8EB" data-widget-id="455411516829736961" data-chrome="noheader nofooter noscrollbar noborders transparent">Loading tweets by @keenthemes...</a>
+            </div>
+            <!-- END TWITTER BLOCK -->
+
+            <!-- BEGIN BOTTOM CONTACTS -->
+            <div class="col-md-3 col-sm-6 pre-footer-col">
+                <h2>Our Contacts</h2>
+                <address class="margin-bottom-40">
+                    35, Lorem Lis Street, Park Ave<br>
+                    California, US<br>
+                    Phone: 300 323 3456<br>
+                    Fax: 300 323 1456<br>
+                    Email: <a href="mailto:info@metronic.com">info@metronic.com</a><br>
+                    Skype: <a href="skype:metronic">metronic</a>
+                </address>
+            </div>
+            <!-- END BOTTOM CONTACTS -->
+        </div>
+        <hr>
+        <div class="row">
+            <!-- BEGIN SOCIAL ICONS -->
+            <div class="col-md-6 col-sm-6">
+                <ul class="social-icons">
+                    <li><a class="rss" data-original-title="rss" href="#"></a></li>
+                    <li><a class="facebook" data-original-title="facebook" href="#"></a></li>
+                    <li><a class="twitter" data-original-title="twitter" href="#"></a></li>
+                    <li><a class="googleplus" data-original-title="googleplus" href="#"></a></li>
+                    <li><a class="linkedin" data-original-title="linkedin" href="#"></a></li>
+                    <li><a class="youtube" data-original-title="youtube" href="#"></a></li>
+                    <li><a class="vimeo" data-original-title="vimeo" href="#"></a></li>
+                    <li><a class="skype" data-original-title="skype" href="#"></a></li>
+                </ul>
+            </div>
+            <!-- END SOCIAL ICONS -->
+            <!-- BEGIN NEWLETTER -->
+            <div class="col-md-6 col-sm-6">
+                <div class="pre-footer-subscribe-box pull-right">
+                    <h2>Newsletter</h2>
+                    <form action="#">
+                        <div class="input-group">
+                            <input type="text" placeholder="youremail@mail.com" class="form-control">
+                            <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit">Subscribe</button>
+                  </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- END NEWLETTER -->
+        </div>
+    </div>
+</div>
+<!-- END PRE-FOOTER -->
+
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN COPYRIGHT -->
+            <div class="col-md-6 col-sm-6 padding-top-10">
+                2014 © Metronic Shop UI. ALL Rights Reserved.
+            </div>
+            <!-- END COPYRIGHT -->
+            <!-- BEGIN PAYMENTS -->
+            <div class="col-md-6 col-sm-6">
+                <ul class="list-unstyled list-inline pull-right">
+                    <li><img src="<?php echo $this->baseUrl() . '/frontend/img/layout/payments/western-union.jpg' ?>" alt="We accept Western Union" title="We accept Western Union"></li>
+                    <li><img src="<?php echo $this->baseUrl() . '/frontend/img/layout/payments/american-express.jpg' ?>" alt="We accept American Express" title="We accept American Express"></li>
+                    <li><img src="<?php echo $this->baseUrl() . '/frontend/img/layout/payments/MasterCard.jpg' ?>" alt="We accept MasterCard" title="We accept MasterCard"></li>
+                    <li><img src="<?php echo $this->baseUrl() . '/frontend/img/layout/payments/PayPal.jpg' ?>" alt="We accept PayPal" title="We accept PayPal"></li>
+                    <li><img src="<?php echo $this->baseUrl() . '/frontend/img/layout/payments/visa.jpg' ?>" alt="We accept Visa" title="We accept Visa"></li>
+                </ul>
+            </div>
+            <!-- END PAYMENTS -->
+        </div>
+    </div>
+</div>
+<!-- END FOOTER -->
+
+
+<!-- Load javascripts at bottom, this will reduce page load time -->
+<!-- BEGIN CORE PLUGINS(REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<?php echo $this->headScript()->prependFile('/frontend/js/plugins/respond.min.js') ?>
+<![endif]-->
+<?php echo $this->headScript()->prependFile('/frontend/js/plugins/jquery-1.11.0.min.js') ?>
+<?php echo $this->headScript()->prependFile('/frontend/js/plugins/jquery-migrate-1.2.1.min.js') ?>
+<?php echo $this->headScript()->prependFile('/frontend/js/plugins/jstree/docs/assets/bootstrap/js/bootstrap.min.js') ?>
+<?php echo $this->headScript()->prependFile('/frontend/js/layout/back-to-top.js') ?>
+<?php echo $this->headScript()->prependFile('/frontend/css/plugins/jquery-slimscroll/jquery.slimscroll.min.js') ?>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
+<?php echo $this->headScript()->prependFile('/frontend/js/plugins/fancybox/source/jquery.fancybox.pack.js') ?>
+<?php echo $this->headScript()->prependFile('/frontend/js/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js') ?>
+<?php echo $this->headScript()->prependFile('/frontend/js/plugins/zoom/jquery.zoom.min.js') ?>
+<?php echo $this->headScript()->prependFile('/frontend/js/plugins/bootstrap-touchspin/bootstrap.touchspin.js') ?>
+<?php echo $this->headScript()->prependFile('/frontend/js/plugins/uniform/jquery.uniform.min.js') ?>
+<?php echo $this->headScript()->prependFile('/frontend/js/plugins/rateit/src/jquery.rateit.js') ?>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script><!-- for slider-range -->
+
+<?php echo $this->headScript()->prependFile('/frontend/js/layout/layout.js') ?>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        Layout.init();
+        Layout.initOWL();
+        Layout.initTwitter();
+        Layout.initImageZoom();
+        Layout.initTouchspin();
+        Layout.initUniform();
+        Layout.initSliderRange();
+    });
+</script>
+<!-- END PAGE LEVEL JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>
